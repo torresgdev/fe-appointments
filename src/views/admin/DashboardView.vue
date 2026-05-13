@@ -65,7 +65,6 @@ onMounted(loadAppointments);
     </Column>
 
     <Column field="clientName" header="Cliente"></Column>
-    <Column field="clientPhone" header="Telefone"></Column>
     <Column field="offeringName" header="Serviço"></Column>
 
     <Column field="status" header="Status">
