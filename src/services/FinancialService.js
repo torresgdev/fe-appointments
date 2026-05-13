@@ -1,6 +1,6 @@
 import api from "../api/api";
 
-// Use EXATAMENTE este nome e certifique-se de usar o "export const"
+
 export const FinancialService = {
     
     dailyRevenue(tenantId) {

@@ -24,6 +24,7 @@ const routes = [
         name: 'client-booking',
         component: ClientBookingView
     },
+    
 ];
 
 const router = createRouter({
