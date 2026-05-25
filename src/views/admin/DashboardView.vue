@@ -11,7 +11,7 @@ import Tag from 'primevue/tag';
 
 const appointments = ref([]);
 const loading = ref(false);
-const tenantId = '6cc42dd1-8052-4f73-a33b-079f8948b8fa';
+const tenantId = '38ac98b9-63d5-4aa2-8975-1628fc2c6e07';
 
 const loadAppointments = async () => {
   loading.value = true;
@@ -66,6 +66,12 @@ onMounted(loadAppointments);
 
     <Column field="clientName" header="Cliente"></Column>
     <Column field="offeringName" header="Serviço"></Column>
+
+    <Column field="professionalName" header="Profissional">
+      <template #body ="{data}">
+        <span class="text-600 font-medium">{{ data.professionalName }}</span>
+      </template>
+    </Column>
 
     <Column field="status" header="Status">
       <template #body="{data}">
