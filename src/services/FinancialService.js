@@ -27,11 +27,17 @@ export const FinancialService = {
         return api.get(`/${tenantId}/financial/professionals/${professionalId}/today-revenue`)
     },
 
-    getChartData(tenantId, professionalId) {
-        return api.get(`/${tenantId}/financial/professionals/${professionalId}/chart-data`)
+    getChartData(tenantId, professionalId, startDate = '', endDate ='') {
+        return api.get(`/${tenantId}/financial/professionals/${professionalId}/chart-data?startDate=${startDate}&endDate=${endDate}`)
     },
 
-    
+    getAllChartData(tenantId, startDate = '', endDate ='') {
+         return api.get(`/${tenantId}/financial/all-chart-data?startDate=${startDate}&endDate=${endDate}`)
+    },
+
+
+
+
 
 
 };

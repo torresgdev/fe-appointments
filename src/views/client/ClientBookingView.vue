@@ -127,7 +127,7 @@ const confirmBooking = async () => {
 
         console.log("Enviando agendamento:", payload);
 
-        // 🛡️ Captura o retorno do seu AppointmentResponseDTO ajustado
+    
         const response = await AppointmentService.createAppointment(tenantId, payload);
         const data = response.data;
 
@@ -136,7 +136,7 @@ const confirmBooking = async () => {
             console.log("======== TOKEN IMPRESSO NO FRONT (DEBUG):", data.verificationToken, " ========");
             tokenDigitado.value = '';
             erroToken.value = '';
-            step.value = 6; // Avança para a nova tela de digitação do código
+            step.value = 6; 
         } else {
             // Se já for verificado, passa direto
             alert("✅ Agendamento realizado com sucesso!");
@@ -151,7 +151,7 @@ const confirmBooking = async () => {
     }
 };
 
-// 🛡️ Nova função para validar o token no PublicAppointmentController
+
 const verifyTokenSubmit = async () => {
     
     if (tokenDigitado.value.length !== 6) {
