@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import PrimeVue from 'primevue/config';
-import Aura from '@primevue/themes/aura'; // Tema moderno do PrimeVue
+import Aura from '@primevue/themes/aura'; 
 
 // Importação dos estilos obrigatórios
 import 'primeicons/primeicons.css'; 

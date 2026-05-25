@@ -10,7 +10,7 @@ import { ref, onMounted } from 'vue';
 const appointmentsHistory = ref([]);
 const totalRevenue = ref (0);
 const loading = ref(false);
-const tenantId = '6cc42dd1-8052-4f73-a33b-079f8948b8fa';
+const tenantId = '38ac98b9-63d5-4aa2-8975-1628fc2c6e07';
 
 const formatCurrency = (value) => {
     if (!value) return "R$ 0,00";
@@ -18,6 +18,18 @@ const formatCurrency = (value) => {
         style: 'currency',
         currency: 'BRL'
     }).format(value);
+};
+
+const formatDateTime = (value) => {
+  if (!value) return '';
+  
+  return new Date(value).toLocaleString('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
 };
 
 
@@ -36,7 +48,6 @@ const loadHistoryToday = async () => {
     try {
         
         const response = await FinancialService.historyToday(tenantId);
-        console.log("Dados do Java: ", response.data)
         appointmentsHistory.value = response.data;
     } catch (error) {
         console.error("Erro ao buscar histórico:", error);
@@ -74,10 +85,15 @@ onMounted(() => {
         <DataTable :value="appointmentsHistory" paginator :rows="5" tableStyle="min-width: 50rem">
           <Column field="transactionDate" header="Data">
             <template #body="slotProps">
-              {{ new Date(slotProps.data.transactionDate).toLocaleDateString([], { hour: '2-digit', minute: '2-digit' }) }}
+              {{ formatDateTime(slotProps.data.transactionDate)}}
             </template>
           </Column>
           <Column field="description" header="Descrição"></Column>
+          <Column field="professionalName" header="Profissional">
+            <template data="{data}">
+              <span class="">{{ data.professionalName }}</span>
+            </template>
+          </Column>
           <Column field="amount" header="Valor">
             <template #body="slotProps">
               R$ {{ slotProps.data.amount.toFixed(2) }}

@@ -1,6 +1,5 @@
 <script setup>
-// Aqui não precisamos de imports por enquanto, 
-// a menos que você queira usar lógica de menu aqui.
+
 </script>
 
 <template>
@@ -16,8 +15,17 @@
       <router-link to="/admin/historico" class="nav-link">
         <i class="pi pi-chart-line mr-2"></i> Financeiro
       </router-link>
+
+      <router-link to="/professional/agenda" class="nav-link">
+        <i class="pi pi-chart-line mr-4"></i> Agenda Profissional
+      </router-link>
+
+      <router-link to="/professional/history" class="nav-link">
+        <i class="pi pi-chart-line mr-4"></i> historico Profissional
+      </router-link>
     </nav>
 
+  
     <!-- Onde as páginas (Views) serão injetadas -->
     <main class="p-2">
       <router-view />

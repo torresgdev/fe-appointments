@@ -13,5 +13,19 @@ export const FinancialService = {
 
     historyToday(tenantId) {
         return api.get(`/${tenantId}/financial/today-history`)
+    },
+
+    historyByProfessionalId(tenantId, professionalId) {
+        return api.get(`/${tenantId}/financial/professionals/${professionalId}/history`)
+    },
+
+    historyByProfessionalIdToday(tenantId, professionalId) {
+        return api.get(`/${tenantId}/financial/professionals/${professionalId}/today-history`)
+    },
+    
+    todayRevenueById(tenantId, professionalId) {
+        return api.get(`/${tenantId}/financial/professionals/${professionalId}/today-revenue`)
     }
+
+
 };
